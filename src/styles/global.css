@@ -256,81 +256,6 @@ a:focus-visible {
 }
 
 
-/* Profile card */
-
-.profile-card {
-  padding: 28px;
-  border: 1px solid var(--color-border);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.012);
-}
-
-.profile-top {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 24px;
-}
-
-.profile-avatar {
-  display: grid;
-  width: 56px;
-  height: 56px;
-  flex-shrink: 0;
-  place-items: center;
-  border: 1px solid #383838;
-  border-radius: 50%;
-  background: #1b1b1b;
-  font-size: 15px;
-  letter-spacing: 0.12em;
-}
-
-.profile-name {
-  margin: 0;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-}
-
-.profile-location {
-  margin: 3px 0 0;
-  color: var(--color-muted);
-  font-size: 10px;
-  letter-spacing: 0.16em;
-}
-
-.profile-description {
-  margin: 0 0 26px;
-  color: var(--color-muted);
-  font-size: 13px;
-  line-height: 1.9;
-}
-
-.profile-details {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.profile-details div {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.profile-details span {
-  color: var(--color-muted);
-  font-size: 9px;
-  letter-spacing: 0.16em;
-}
-
-.profile-details strong {
-  font-size: 10px;
-  font-weight: 500;
-  line-height: 1.7;
-  overflow-wrap: anywhere;
-}
-
 /* Shared section typography */
 
 .section-label {
@@ -373,6 +298,62 @@ a:focus-visible {
 }
 
 /* Projects */
+
+
+/* =================================
+   INTERACTIVE PROJECT CARDS
+================================= */
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 300ms ease,
+    background-color 300ms ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+/* Project title */
+
+.project-card h3 {
+  transition: transform 250ms ease;
+}
+
+.project-card:hover h3 {
+  transform: translateX(3px);
+}
+
+/* Arrow interaction */
+
+.project-card .project-arrow {
+  display: inline-block;
+  transition: transform 250ms ease;
+}
+
+.project-card:hover .project-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* Keyboard users should see focus clearly */
+
+.project-card:focus-within {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 4px;
+}
+
+/* Disable large hover movement on touch devices */
+
+@media (hover: none) {
+  .project-card:hover {
+    transform: none;
+  }
+}
 
 .projects-section {
   padding-block: 88px;
@@ -579,4 +560,144 @@ a:focus-visible {
     display: flex;
     justify-content: center;
     gap: 20px;
+}
+
+/* =================================
+   CINEMATIC HERO REVEAL
+================================= */
+
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  animation: heroReveal 900ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.reveal-delay-1 {
+  animation-delay: 100ms;
+}
+
+.reveal-delay-2 {
+  animation-delay: 250ms;
+}
+
+.reveal-delay-3 {
+  animation-delay: 400ms;
+}
+
+.reveal-delay-4 {
+  animation-delay: 600ms;
+}
+
+.reveal-delay-5 {
+  animation-delay: 750ms;
+}
+
+.reveal-delay-6 {
+  animation-delay: 900ms;
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    animation: none;
+    transform: none;
+    filter: none;
+  }
+}
+
+/* =================================
+   AMBIENT BACKGROUND
+================================= */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 20% 35%,
+      rgba(255, 255, 255, 0.045),
+      transparent 48%
+    ),
+    var(--color-background);
+}
+
+/* Keep the hero content above decorative layers */
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Very subtle film grain */
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.035;
+
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+
+  background-repeat: repeat;
+}
+
+/* =================================
+   SCROLL REVEALS
+================================= */
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+
+  transition:
+    opacity 700ms ease,
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Small stagger for groups of elements */
+
+.scroll-reveal[data-delay="1"] {
+  transition-delay: 100ms;
+}
+
+.scroll-reveal[data-delay="2"] {
+  transition-delay: 200ms;
+}
+
+.scroll-reveal[data-delay="3"] {
+  transition-delay: 300ms;
+}
+
+/* Accessible fallback */
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

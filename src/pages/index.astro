@@ -13,6 +13,7 @@ import "../styles/global.css";
       content="Piyush — engineering student exploring machine learning and software development."
     />
     <meta name="theme-color" content="#090909" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Piyush — Engineering & AI/ML</title>
   </head>
 
@@ -23,26 +24,29 @@ import "../styles/global.css";
     	<section id="home" class="hero">
 			<div class="container hero-inner">
 
-				<p class="hero-eyebrow">
+				<p class="hero-eyebrow reveal reveal-delay-1">
 				<span class="status-dot"></span>
 				EEE STUDENT <span class="separator">/</span> NIT GOA
 				</p>
 
 				<h1 class="hero-name">
-				<span>PIYUSH</span>
-				<span class="name-muted">SHRIVASTAVA</span>
+				<span class="name-line reveal reveal-delay-2">PIYUSH</span>
+				<span class="name-muted name-line reveal reveal-delay-3">
+					SHRIVASTAVA
+				</span>
 				</h1>
+
 
 				<div class="hero-bottom">
 				<div class="hero-intro">
-					<h2>BUILDING TO UNDERSTAND.</h2>
+					<h2 class= "reveal reveal-delay-4">BUILDING TO UNDERSTAND.</h2>
 
-					<p>
+					<p class= "reveal reveal-delay-5">
 					Exploring machine learning and software development
 					through practical projects and independent learning.
 					</p>
 
-					<a class="primary-button" href="#projects">
+					<a class="primary-button reveal reveal-delay-5" href="#projects">
 					EXPLORE PROJECTS
 					<span aria-hidden="true">↗</span>
 					</a>
@@ -56,9 +60,13 @@ import "../styles/global.css";
 				</div>
 
 			</div>
+			<script>
+			import "../scripts/interactions.js";
+			</script>
 		</section>
 
-		<section class="capabilities">
+		
+		<section class="capabilities scroll-reveal">
 		<div class="container capabilities-grid">
 			<div>
 			<p class="section-label">CURRENT INTERESTS</p>
@@ -73,7 +81,7 @@ import "../styles/global.css";
 		</div>
 		</section>
 
-		<section id="projects" class="projects-section">
+		<section id="projects" class="projects-section scroll-reveal">
 		<div class="container">
 			<p class="section-label">SELECTED WORK</p>
 			<h2>PROJECTS I'M BUILDING</h2>
@@ -157,7 +165,7 @@ import "../styles/global.css";
 		</div>
 		</section>
 
-		<section id="about" class="about-section">
+		<section id="about" class="about-section scroll-reveal">
 		<div class="container about-grid">
 			<div>
 			<p class="section-label">A LITTLE ABOUT ME</p>
@@ -180,7 +188,7 @@ import "../styles/global.css";
 		</div>
 		</section>
 
-		<section id="contact" class="contact-section">
+		<section id="contact" class="contact-section scroll-reveal">
 		<div class="container contact-inner">
 			<p class="section-label">HAVE SOMETHING IN MIND?</p>
 			<h2>LET'S CONNECT.</h2>
@@ -210,7 +218,7 @@ import "../styles/global.css";
 		<footer class="site-footer">
 		<div class="container footer-inner">
 			<span>PIYUSH.</span>
-			<span>BUILT WITH ASTRO · 2026</span>
+			<span>CONSTANTLY EVOLVING· 2026</span>
 		</div>
 		</footer>
     </main>
