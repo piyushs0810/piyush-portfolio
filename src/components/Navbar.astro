@@ -1,0 +1,94 @@
+<header class="site-header">
+  <nav class="container navbar" aria-label="Main navigation">
+    <a class="brand" href="/" aria-label="Piyush — home">
+      PIYUSH SHRIVASTAVA
+    </a>
+
+    <div class="nav-links">
+      <a href="#home">HOME</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#about">ABOUT</a>
+    </div>
+
+    <a class="contact-button" href="#contact">
+      LET'S TALK <span aria-hidden="true">↗</span>
+    </a>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .navbar {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .brand {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    white-space: nowrap;
+  }
+
+  .brand span {
+    color: var(--color-muted);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .nav-links a,
+  .contact-button {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+  }
+
+  .nav-links a {
+    color: var(--color-muted);
+    transition: color 180ms ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--color-text);
+  }
+
+  .contact-button {
+    border: 1px solid #404040;
+    border-radius: 9px;
+    padding: 11px 14px;
+    white-space: nowrap;
+  }
+
+  .contact-button span {
+    margin-left: 6px;
+  }
+
+  @media (max-width: 600px) {
+    .navbar {
+      min-height: 68px;
+      flex-wrap: wrap;
+      padding-block: 16px;
+    }
+
+    .nav-links {
+      order: 3;
+      width: 100%;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .nav-links a,
+    .contact-button {
+      font-size: 10px;
+    }
+  }
+</style>

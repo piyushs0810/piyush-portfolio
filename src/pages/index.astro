@@ -1,16 +1,218 @@
 ---
+import Navbar from "../components/Navbar.astro";
+import "../styles/global.css";
 ---
 
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="Piyush — engineering student exploring machine learning and software development."
+    />
+    <meta name="theme-color" content="#090909" />
+    <title>Piyush — Engineering & AI/ML</title>
+  </head>
+
+  <body>
+    <Navbar />
+
+	<main>
+    	<section id="home" class="hero">
+			<div class="container hero-inner">
+
+				<p class="hero-eyebrow">
+				<span class="status-dot"></span>
+				EEE STUDENT <span class="separator">/</span> NIT GOA
+				</p>
+
+				<h1 class="hero-name">
+				<span>PIYUSH</span>
+				<span class="name-muted">SHRIVASTAVA</span>
+				</h1>
+
+				<div class="hero-bottom">
+				<div class="hero-intro">
+					<h2>BUILDING TO UNDERSTAND.</h2>
+
+					<p>
+					Exploring machine learning and software development
+					through practical projects and independent learning.
+					</p>
+
+					<a class="primary-button" href="#projects">
+					EXPLORE PROJECTS
+					<span aria-hidden="true">↗</span>
+					</a>
+				</div>
+
+				<a class="scroll-indicator" href="#projects">
+					<span class="scroll-line"></span>
+					SCROLL TO EXPLORE
+					<span aria-hidden="true">↓</span>
+				</a>
+				</div>
+
+			</div>
+		</section>
+
+		<section class="capabilities">
+		<div class="container capabilities-grid">
+			<div>
+			<p class="section-label">CURRENT INTERESTS</p>
+			<h2>WHAT I'M EXPLORING</h2>
+			</div>
+
+			<p class="capabilities-description">
+			From learning the fundamentals of machine learning to
+			building full applications, I'm interested in understanding
+			how software works from the inside out.
+			</p>
+		</div>
+		</section>
+
+		<section id="projects" class="projects-section">
+		<div class="container">
+			<p class="section-label">SELECTED WORK</p>
+			<h2>PROJECTS I'M BUILDING</h2>
+
+			<p class="section-description">
+			A collection of projects through which I'm learning,
+			experimenting, and improving my engineering skills.
+			</p>
+
+			<div class="project-grid">
+			<article class="project-card">
+				<span class="project-number">01 / MACHINE LEARNING</span>
+				<h3>House Price Prediction</h3>
+				<p>
+				A regression project exploring data preprocessing,
+				model evaluation, and price prediction through a web app.
+				</p>
+				<div class="project-tags">
+				<span>PYTHON</span>
+				<span>SCIKIT-LEARN</span>
+				<span>STREAMLIT</span>
+				</div>
+				<a href="https://github.com/piyushs0810/house-price-prediction"
+				target="_blank"
+				rel="noreferrer">
+				VIEW SOURCE ↗
+				</a>
+			</article>
+
+			<article class="project-card">
+				<span class="project-number">02 / COMPUTER VISION</span>
+				<h3>Digit Recognition</h3>
+				<p>
+				An image-classification project using machine-learning
+				techniques to recognize handwritten digits.
+				</p>
+				<div class="project-tags">
+				<span>PYTHON</span>
+				<span>SCIKIT-LEARN</span>
+				</div>
+				<a href="https://github.com/piyushs0810"
+				target="_blank"
+				rel="noreferrer">
+				EXPLORE GITHUB ↗
+				</a>
+			</article>
+
+			<article class="project-card">
+				<span class="project-number">03 / AI ASSISTANT</span>
+				<h3>Cooperative Saathi</h3>
+				<p>
+				An in-progress multilingual assistance chatbot focused
+				on cooperative governance and public information.
+				</p>
+				<div class="project-tags">
+				<span>PYTHON</span>
+				<span>LLMS</span>
+				<span>RAG — EXPLORING</span>
+				</div>
+				<span class="project-status">IN PROGRESS</span>
+			</article>
+
+			<article class="project-card">
+				<span class="project-number">04 / WEB DEVELOPMENT</span>
+				<h3>NITG connect</h3>
+				<p>
+				A web of 
+				</p>
+				<div class="project-tags">
+				<span>TYPESCRIPT</span>
+				<span>CSS</span>
+				<span>Firebase -Database</span>
+				</div>
+				<a href="https://github.com/piyushs0810"
+				target="_blank"
+				rel="noreferrer">
+				EXPLORE GITHUB ↗
+				</a>
+			</article>
+			</div>
+		</div>
+		</section>
+
+		<section id="about" class="about-section">
+		<div class="container about-grid">
+			<div>
+			<p class="section-label">A LITTLE ABOUT ME</p>
+			<h2>ENGINEERING<br />MEETS CURIOSITY.</h2>
+			</div>
+
+			<div class="about-copy">
+			<p>
+				I'm an Electrical and Electronics Engineering student at
+				NIT Goa, exploring software development and machine learning
+				alongside my engineering studies.
+			</p>
+
+			<p>
+				I'm working toward becoming a stronger engineer by building
+				projects, understanding the code behind them, and learning
+				to solve problems independently.
+			</p>
+			</div>
+		</div>
+		</section>
+
+		<section id="contact" class="contact-section">
+		<div class="container contact-inner">
+			<p class="section-label">HAVE SOMETHING IN MIND?</p>
+			<h2>LET'S CONNECT.</h2>
+			<p>
+			I'm open to connecting with people who are building,
+			experimenting, and learning in technology.
+			</p>
+			<div class="contact-buttons">
+				<a href="https://github.com/piyushs0810"
+				target="_blank"
+				rel="noreferrer"
+				class="primary-button">
+					FIND ME ON GITHUB ↗
+				</a>
+
+				<a href="YOUR_LINKEDIN_PROFILE_URL"
+				target="_blank"
+				rel="noreferrer"
+				class="primary-button">
+					FIND ME ON LINKEDIN ↗
+				</a>
+			</div>
+			
+		</div>
+		</section>
+
+		<footer class="site-footer">
+		<div class="container footer-inner">
+			<span>PIYUSH.</span>
+			<span>BUILT WITH ASTRO · 2026</span>
+		</div>
+		</footer>
+    </main>
+  </body>
 </html>
