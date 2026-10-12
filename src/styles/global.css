@@ -33,6 +33,19 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
 }
+html.js-enabled .scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+
+  transition:
+    opacity 700ms ease,
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.js-enabled .scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* 5. Consistent content width */
 .container {
@@ -47,7 +60,8 @@ a {
 }
 
 /* 7. Buttons and links respond to interaction */
-a:focus-visible {
+a:focus-visible,
+button:focus-visible {
   outline: 2px solid var(--color-text);
   outline-offset: 5px;
 }
@@ -493,7 +507,13 @@ a:focus-visible {
   font-size: 10px;
   letter-spacing: 0.16em;
 }
-
+@media (max-width: 420px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
 /* Responsive layout */
 
 @media (max-width: 760px) {
@@ -501,19 +521,8 @@ a:focus-visible {
     padding-block: 60px;
   }
 
-  .hero-grid,
-  .capabilities-grid,
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-
   .project-grid {
     grid-template-columns: 1fr;
-  }
-
-  .profile-card {
-    padding: 22px;
   }
 
   .capabilities,
@@ -534,18 +543,6 @@ a:focus-visible {
     letter-spacing: 0.04em;
   }
 
-  .profile-details {
-    gap: 8px;
-  }
-
-  .profile-details span {
-    font-size: 8px;
-  }
-
-  .profile-details strong {
-    font-size: 9px;
-  }
-
   .project-card {
     padding: 22px;
   }
@@ -557,9 +554,30 @@ a:focus-visible {
 }
 
 .contact-buttons {
-    display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.contact-buttons .primary-button {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .contact-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .contact-buttons .primary-button {
+    width: 100%;
     justify-content: center;
-    gap: 20px;
+    text-align: center;
+  }
 }
 
 /* =================================
@@ -672,32 +690,14 @@ a:focus-visible {
     transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.scroll-reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Small stagger for groups of elements */
-
-.scroll-reveal[data-delay="1"] {
-  transition-delay: 100ms;
-}
-
-.scroll-reveal[data-delay="2"] {
-  transition-delay: 200ms;
-}
-
-.scroll-reveal[data-delay="3"] {
-  transition-delay: 300ms;
-}
-
-/* Accessible fallback */
 
 @media (prefers-reduced-motion: reduce) {
-  .scroll-reveal,
-  .scroll-reveal.is-visible {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }

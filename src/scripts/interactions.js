@@ -3,6 +3,7 @@
 // =================================
 
 const revealElements = document.querySelectorAll(".scroll-reveal");
+document.documentElement.classList.add("js-enabled");
 
 const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
